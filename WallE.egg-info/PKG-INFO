@@ -1,0 +1,17 @@
+Metadata-Version: 1.1
+Name: WallE
+Version: 1.0.0
+Summary: A ROS wrapper
+Home-page: https://github.com/pypa/sampleproject
+Author: Jason Tyanhau Chiau
+Author-email: tyan_chiau@berkeley.edu
+License: UNKNOWN
+Description-Content-Type: UNKNOWN
+Description: UNKNOWN
+Keywords: robotics
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Robotics
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
