@@ -1,12 +1,10 @@
 from setuptools import setup, find_packages
-from codecs import open
-from os import path
 
 setup(
     name='WallE',
-    version='1.0.1',
+    version='1.0.2',
     description='A ROS wrapper',
-    url='https://github.com/pypa/sampleproject',
+    url='https://github.com/tianhaoz95/WallE',
     author='Jason Tyanhau Chiau',
     author_email='tyan_chiau@berkeley.edu',
     classifiers=[
@@ -16,6 +14,5 @@ setup(
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
     ],
-    keywords='robotics',
     packages=find_packages()
 )

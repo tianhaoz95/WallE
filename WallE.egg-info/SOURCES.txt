@@ -3,7 +3,17 @@ MANIFEST.in
 README.rst
 setup.cfg
 setup.py
+WallE/__init__.py
 WallE.egg-info/PKG-INFO
 WallE.egg-info/SOURCES.txt
 WallE.egg-info/dependency_links.txt
 WallE.egg-info/top_level.txt
+WallE/API/RobotAPI.py
+WallE/API/__init__.py
+WallE/Robot/Robot.py
+WallE/Robot/__init__.py
+WallE/Robot/util.py
+WallE/Task/Routine.py
+WallE/Task/Task.py
+WallE/Task/__init__.py
+WallE/Task/util.py
