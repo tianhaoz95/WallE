@@ -1,15 +1,15 @@
-from .util import get_impl
+from .util import get_robot_impl
 
 reserved_attr = set(['clean_cache'])
 
 class Robot:
     __instance = None
 
-    def __init__(self, mode=None, info=None):
+    def __init__(self, api_mode=None, api_info=None, init_info=None):
         """ Create robot instance """
         if Robot.__instance is None:
-            robot_impl = get_impl(mode, info)
-            Robot.__instance = robot_impl()
+            robot_impl = get_robot_impl(api_mode, api_info)
+            Robot.__instance = robot_impl(init_info)
         self.__dict__['_Robot__instance'] = Robot.__instance
 
     def __getattr__(self, attr):

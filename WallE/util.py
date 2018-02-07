@@ -15,10 +15,17 @@ def check_init(path):
     else:
         print('Init file exist, continue')
 
-def get_impl(mode, info):
+def get_robot_impl(mode, info):
     if mode == 'local':
         return get_local_impl(info['module_name'], info['class_name'])
+    if mode == 'module':
+        return get_module_impl(info['module_impl'])
+    if mode == 'remote':
+        return get_remote_impl(info['module_name'], info['class_name'], info['url'])
     return None
+
+def get_module_impl(module_impl):
+    return module_impl
 
 def get_local_impl(module_name, class_name):
     check_dir('robotlib')

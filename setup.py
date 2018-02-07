@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='WallE',
-    version='1.0.2',
+    version='1.0.5',
     description='A ROS wrapper',
     url='https://github.com/tianhaoz95/WallE',
     author='Jason Tyanhau Chiau',
@@ -14,5 +14,5 @@ setup(
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
     ],
-    packages=find_packages()
+    packages=find_packages(exclude=['test'])
 )
