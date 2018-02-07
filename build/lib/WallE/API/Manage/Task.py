@@ -12,3 +12,7 @@ class SimpleTask(ABC):
     @abstractmethod
     def run(self):
         pass
+
+    @abstractmethod
+    def report(self):
+        pass

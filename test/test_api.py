@@ -1,5 +1,6 @@
 from WallE.API.RobotAPI import VisionAPI, ArmAPI
 from WallE import Interface
+from WallE.API.Manage.Task import SimpleTask
 
 class HalVisionAPI(VisionAPI):
 
@@ -46,6 +47,47 @@ class HalAPI(HalArmAPI, HalVisionAPI):
     def start(self):
         super(HalAPI, self).start()
 
-robot = Interface.Robot(api_mode='module', api_info={'module_impl': HalAPI})
+class LocateObjects(SimpleTask):
 
-robot.get_img()
+    def __init__(self, robot):
+        super().__init__(robot)
+
+    def setup(self):
+        super().setup()
+        print('starting camera ...')
+        print('downloading pre train model ...')
+
+    def run(self):
+        self.robot.get_img()
+        print('passing img through YOLO ...')
+        print('passing img through MASK layer ...')
+        return None
+
+    def report(self):
+        print('reporting detail status ...')
+
+class GrabObject(SimpleTask):
+    def __init__(self, robot):
+        super().__init__(robot)
+        self.add_dep('locator', LocateObjects)
+
+    def setup(self):
+        super().setup()
+        print('starting arm ...')
+
+    def run(self):
+        loc = self.deps['locator'].run()
+        if loc:
+            self.robot.move_to(loc)
+            dest = 'some location'
+            self.robot.move_to(dest)
+        else:
+            print('no object found')
+        print('done')
+
+    def report(self):
+        print('reporting detail status ...')
+
+robot = Interface.Robot(api_mode='module', api_info={'module_impl': HalAPI})
+robot.add_task(GrabObject)
+robot.run_task()

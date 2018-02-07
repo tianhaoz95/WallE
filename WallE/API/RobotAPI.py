@@ -13,7 +13,7 @@ class BasicAPI(ABC):
     def add_task(self, mode, task_meta):
         self.checklist.add(mode, task_meta)
 
-    def run(self, get_task=None):
+    def run_task(self, get_task=None):
         self.checklist.run(get_task)
 
     @abstractmethod
